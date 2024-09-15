@@ -3,67 +3,63 @@ const navbarNav = document.querySelector('.navbar-nav');
 
 // ketika hamburger menu di klik
 document.querySelector('#hamburger-menu').onclick = (e) => {
-    navbarNav.classList.toggle('active');
-    e.preventDefault();
+  navbarNav.classList.toggle('active');
+  e.preventDefault();
 };
-
-// Toggle class active untuk search form
-//const searchForm = document.querySelector('.search-form');
-// const searchBox = document.querySelector('#search-box');
-
-// document.querySelector('#search-button').onclick = (e) => {
-//     searchForm.classList.toggle('active');
-//     searchBox.focus();
-//     e.preventDefault();
-// };
-
-// Toggle class active untuk shopping cart
-//const shoppingCart = document.querySelector('.shopping-cart');
-
-// document.querySelector('#shopping-cart-button').onclick = (e) => {
-//     shoppingCart.classList.toggle('active');
-//     e.preventDefault();
-// };
-
 
 // klik di luar sidebar elemen
 const hm = document.querySelector('#hamburger-menu');
-// const sb = document.querySelector ('#search-button');
-//const sc = document.querySelector ('#shopping-cart-button');
 
 document.addEventListener('click', function (e) {
-    if (!hm.contains(e.target) && !navbarNav.contains(e.target)) {
+  if (!hm.contains(e.target) && !navbarNav.contains(e.target)) {
     navbarNav.classList.remove('active');
-    }
-    // if(!sb.contains(e.target) && !searchForm.contains(e.target)){
-    //     searchForm.classList.remove('active');
-    // }
-    // if(!sc.contains(e.target) && !searchForm.contains(e.target)){
-    // shoppingCart.classList.remove('active');
-    // }
+  }
 });
 
+// Modal box 1
+const itemDetailModal1 = document.querySelector('#item-detail-modal1');
+const itemDetailButtons1 = document.querySelectorAll('.item-detail-button1');
 
-// Modal box
-const itemDetailModal = document.querySelector('#item-detail-modal');
-const itemDetailButtons = document.querySelectorAll('.item-detail-button');
-
-itemDetailButtons.forEach((btn) => {
-    btn.onclick = (e) => {
-    itemDetailModal.style.display = 'flex';
+itemDetailButtons1.forEach((btn) => {
+  btn.onclick = (e) => {
+    itemDetailModal1.style.display = 'flex';
     e.preventDefault();
-};
+  };
 });
 
-// klik tombol close modal
-document.querySelector('.modal .close-icon').onclick = (e) => {
-    itemDetailModal.style.display = 'none';
-    e.preventDefault();
+// klik tombol close modal untuk modal 1
+document.querySelector('#item-detail-modal1 .close-icon').onclick = (e) => {
+  itemDetailModal1.style.display = 'none';
+  e.preventDefault();
 };
 
-// klik di luar modal
-window.onclick = (e) => {
-    if (e.target === itemDetailModal) {
-    itemDetailModal.style.display = 'none';
-    }
+// klik di luar modal untuk modal 1
+window.addEventListener('click', (e) => {
+  if (e.target === itemDetailModal1) {
+    itemDetailModal1.style.display = 'none';
+  }
+});
+
+// Modal box 2
+const itemDetailModal2 = document.querySelector('#item-detail-modal2');
+const itemDetailButtons2 = document.querySelectorAll('.item-detail-button2');
+
+itemDetailButtons2.forEach((btn) => {
+  btn.onclick = (e) => {
+    itemDetailModal2.style.display = 'flex';
+    e.preventDefault();
+  };
+});
+
+// klik tombol close modal untuk modal 2
+document.querySelector('#item-detail-modal2 .close-icon').onclick = (e) => {
+  itemDetailModal2.style.display = 'none';
+  e.preventDefault();
 };
+
+// klik di luar modal untuk modal 2
+window.addEventListener('click', (e) => {
+  if (e.target === itemDetailModal2) {
+    itemDetailModal2.style.display = 'none';
+  }
+});
